@@ -1,0 +1,15 @@
+public class TimerTest {
+
+    @Test
+    public void testStopTimer() throws InterruptedException {
+        Timer timer = new Timer();
+
+        timer.startTimer();
+        Thread.sleep(1000);
+
+        double time = timer.stopTimer();
+
+        assertTrue(time >= 1.0);
+        assertTrue(time < 2.0);
+    }
+}
