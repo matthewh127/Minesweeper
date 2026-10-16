@@ -16,11 +16,10 @@ The tests use **JUnit 4**. Download the JARs ([junit-4.13.jar](https://repo1.m
 
 ```powershell
 # Compile source and test classes together
-javac -cp .;junit-4.13.jar;hamcrest-core-1.3.jar *.java
+javac -cp ".;junit-4.13.jar;hamcrest-core-1.3.jar" *.java
 
 # Execute all tests
-java -cp .;junit-4.13.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore \
-    LinkedChainTest CoordinateTest TileTest BoardTest MineSweeperTest TimerTest
+java -cp ".;junit-4.13.jar;hamcrest-core-1.3.jar" org.junit.runner.JUnitCore LinkedChainTest CoordinateTest TileTest BoardTest MineSweeperTest TimerTest
 ```
 
 > **Note:** On Windows the class‑path separator is `;`. Adjust for other OSes.
