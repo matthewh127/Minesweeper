@@ -4,7 +4,7 @@
 
 ```powershell
 # Compile all source files
-javac *.java
+javac -cp ".;junit-4.13.jar;hamcrest-core-1.3.jar" *.java
 
 # Run the game (starts an 8×8 board with 10 mines)
 java Main
