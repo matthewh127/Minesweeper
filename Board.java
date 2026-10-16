@@ -123,6 +123,20 @@ public class Board {
     }
     public void printBoard() {
         for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < cols; c++) {
+        Tile t = getTile(r, c);
+        if (t.isRevealed() && !t.isMine() && t.getAdjacentMines(this, r, c) == 0) {
+            // call flood-fill on adjacent (unrevealed) tiles
+            for (int dr = -1; dr <= 1; dr++) {
+                for (int dc = -1; dc <= 1; dc++) {
+                    if (dr == 0 && dc == 0) continue;
+                    revealAdjacentZeros(r + dr, c + dc);
+                }
+            }
+        }
+    }
+}
+        for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 Tile tile = getTile(r, c);
                 if (tile.isRevealed()) {
@@ -140,14 +154,7 @@ public class Board {
             }
             System.out.println();
         }
-        for (int r = 0; r < rows; r++) {
-    for (int c = 0; c < cols; c++) {
-        Tile t = getTile(r, c);
-        if (t.isRevealed() && !t.isMine() && t.getAdjacentMines(this, r, c) == 0) {
-            revealAdjacentZeros(r, c);
-        }
-    }
-}
+        
     }
 private void revealAdjacentZeros(int r, int c) {
     // bounds check
