@@ -80,6 +80,36 @@ public class MineSweeper {
         double elapsed = timer.stopTimer();
         System.out.println("Game finished in " + elapsed + " seconds.");
     }
+    
+    /**
+     * Prompts the player to choose an action.
+     *
+     * @return 1 to reveal or 2 to toggle a flag
+     */
+    private int getAction() {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        int action = 0;
+
+        while (action != 1 && action != 2) {
+            System.out.println("Choose an action:");
+            System.out.println("1 - Reveal tile");
+            System.out.println("2 - Place/remove flag");
+
+        if (scanner.hasNextInt()) {
+            action = scanner.nextInt();
+        }
+        else {
+            scanner.next();
+        }
+
+        if (action != 1 && action != 2) {
+            System.out.println("Invalid action. Try again.");
+        }
+    }
+
+    return action;
+}
 
     /** Marks a win and ends the loop. */
     public void setWin() {
