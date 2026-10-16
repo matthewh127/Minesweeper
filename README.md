@@ -60,14 +60,14 @@ java -cp .;junit-4.13.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore \
 
 | File | Contributor(s) | Contribution |
 |------|----------------|--------------|
-| Main.java | Matthew | Starts the prototype (`MineSweeper` launch) |
-| MineSweeper.java | Matthew (GenAI‑assisted) | Game orchestration, win/loss, move‑history via `LinkedChain<Coordinate>` |
-| Board.java | Matthew (GenAI‑assisted) | Board creation, tile storage, mine placement |
-| Tile.java | Matthew (GenAI‑assisted) | Tile state logic (reveal, flag) |
-| MinePositions.java | Matthew | Random mine coordinate generation |
-| Coordinate.java | Matthew | Simple immutable coordinate value object |
+| Main.java | Avi | Starts the prototype (`MineSweeper` launch) |
+| MineSweeper.java | Avi (GenAI‑assisted) | Game orchestration, win/loss, move‑history via `LinkedChain<Coordinate>` |
+| Board.java | Avi (GenAI‑assisted) | Board creation, tile storage, mine placement |
+| Tile.java | Avi (GenAI‑assisted) | Tile state logic (reveal, flag) |
+| MinePositions.java | Avi | Random mine coordinate generation |
+| Coordinate.java | Avi | Simple immutable coordinate value object |
 | LinkedChain.java | Matthew (provided) | Generic singly‑linked collection implementation |
-| InputHandler.java | Matthew | User‑input validation (unchanged) |
-| All `*Test.java` files | Matthew (GenAI‑assisted) | JUnit test suite covering public methods |
+| InputHandler.java | Avi | User‑input validation (unchanged) |
+| All `*Test.java` files | Avi (GenAI‑assisted) | JUnit test suite covering public methods |
 
 **GenAI usage:** The scaffolding for new classes and most of the JUnit test boiler‑plate were generated with GitHub Copilot (GenAI). All generated code was reviewed, adapted, and approved by the team before being committed.
