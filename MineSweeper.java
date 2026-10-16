@@ -65,7 +65,10 @@ public class MineSweeper {
             // Record the move in the second LinkedChain (fulfills rubric)
             moveHistory.add(new Coordinate(r, c));
             Tile tile = board.getTile(r, c);
-            if (tile.isMine()) {
+            if(inputHandler.getFlagChoice()) {
+                tile.toggleFlag();
+            } 
+            else if (tile.isMine()) {
                 setLoss();
                 break;
             } else {
