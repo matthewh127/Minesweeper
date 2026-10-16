@@ -60,7 +60,7 @@ java -cp .;junit-4.13.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore \
   * Additional edge‑case tests for `InputHandler` (already added).
   * Tests for board display formatting and flag toggling.
 * **Who does what?**
-  * Avi – UI display and difficulty settings.
+  * Avi – UI display.
   * Isabella – Flagging feature implementation.
   * Matthew – Final review of `LinkedChain` usage and test coverage.
   * Larry – Write additional JUnit tests for board and tile logic.
