@@ -25,4 +25,26 @@ public class Tile {
             flagged = !flagged;
         }
     }
+    
+    /**
+     * Returns whether the tile is flagged.
+     *
+     * @return true if the tile is flagged
+     */
+    public boolean isFlagged() {
+        return flagged;
+    }
+
+    /**
+     * Toggles the flag on a tile.
+     * Revealed tiles cannot be flagged.
+     */
+    public void toggleFlag() {
+        if (revealed) {
+            return;
+    }
+
+        flagged = !flagged;
+}
+
 }
