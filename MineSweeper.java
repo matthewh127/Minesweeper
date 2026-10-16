@@ -14,7 +14,6 @@ public class MineSweeper {
     private boolean win = false;
 
     /** Starts a fixed 8\u00d78 board with 10 mines. */
-    public void startGame() {
         
     /**
      * Starts the Minesweeper game and allows the
