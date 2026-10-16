@@ -130,7 +130,7 @@ public class Board {
                         System.out.print("[*]");
                     } else {
                         int adjacentMines = tile.getAdjacentMines(this, r, c);
-                        System.out.print("[" + (adjacentMines > 0 ? adjacentMines : " ") + "]");
+                        System.out.print("[" + (adjacentMines > 0 ? adjacentMines : "0") + "]");
                     }
                 } else if (tile.isFlagged()) {
                     System.out.print("[F]");
