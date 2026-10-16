@@ -50,4 +50,5 @@ public int getAdjacentMines(Board board, int row, int col) {
 
     return count;
 }
+
 }

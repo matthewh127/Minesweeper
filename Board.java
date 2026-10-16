@@ -140,6 +140,36 @@ public class Board {
             }
             System.out.println();
         }
+        for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < cols; c++) {
+        Tile t = getTile(r, c);
+        if (t.isRevealed() && !t.isMine() && t.getAdjacentMines(this, r, c) == 0) {
+            revealAdjacentZeros(r, c);
+        }
     }
+}
+    }
+private void revealAdjacentZeros(int r, int c) {
+    // bounds check
+    if (r < 0 || r >= rows || c < 0 || c >= cols) return;
 
+    Tile t = getTile(r, c);
+    if (t.isFlagged() || t.isRevealed()) return; // nothing to do
+
+    // reveal this tile
+    t.reveal();
+
+    // if this tile has any adjacent mines, stop expanding
+    if (t.isMine()) return;
+    int adj = t.getAdjacentMines(this, r, c);
+    if (adj != 0) return;
+
+    // recursively reveal all 8 neighbors
+    for (int dr = -1; dr <= 1; dr++) {
+        for (int dc = -1; dc <= 1; dc++) {
+            if (dr == 0 && dc == 0) continue;
+            revealAdjacentZeros(r + dr, c + dc);
+        }
+    }
+}
 }
