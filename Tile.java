@@ -25,4 +25,29 @@ public class Tile {
             flagged = !flagged;
         }
     }
+public int getAdjacentMines(Board board, int row, int col) {
+    if (board == null) {
+        throw new IllegalArgumentException("board cannot be null");
+    }
+
+    int count = 0;
+    int rows = board.getRows();
+    int cols = board.getCols();
+
+    for (int dr = -1; dr <= 1; dr++) {
+        for (int dc = -1; dc <= 1; dc++) {
+            if (dr == 0 && dc == 0) continue; // skip self
+            int r = row + dr;
+            int c = col + dc;
+            if (r >= 0 && r < rows && c >= 0 && c < cols) {
+                Tile neighbor = board.getTile(r, c);
+                if (neighbor != null && neighbor.isMine()) {
+                    count++;
+                }
+            }
+        }
+    }
+
+    return count;
+}
 }
