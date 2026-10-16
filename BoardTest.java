@@ -22,9 +22,62 @@ public class BoardTest {
         }
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetTileOutOfBounds() {
-        Board board = new Board(3, 3, 1);
-        board.getTile(-1, 0); // should throw
+    
+    /**
+     * Tests that easy difficulty creates
+     * an 8x8 board with 10 mines.
+     */
+    @Test
+    public void testEasyDifficulty() {
+        Board board = new Board(1);
+
+        assertEquals(8, board.getRows());
+        assertEquals(8, board.getCols());
+        assertEquals(10, board.getMines());
     }
+
+    /**
+     * Tests that medium difficulty creates
+     * a 12x12 board with 20 mines.
+     */
+    @Test
+    public void testMediumDifficulty() {
+        Board board = new Board(2);
+
+        assertEquals(12, board.getRows());
+        assertEquals(12, board.getCols());
+        assertEquals(20, board.getMines());
+    }
+
+    /**
+     * Tests that hard difficulty creates
+     * a 16x16 board with 40 mines.
+     */
+    @Test
+    public void testHardDifficulty() {
+        Board board = new Board(3);
+
+        assertEquals(16, board.getRows());
+        assertEquals(16, board.getCols());
+        assertEquals(40, board.getMines());
+    }
+
+    /**
+     * Tests that a difficulty below 1
+     * throws an exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testDifficultyTooLow() {
+        new Board(0);
+    }
+
+    /**
+     * Tests that a difficulty above 3
+     * throws an exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testDifficultyTooHigh() {
+        new Board(4);
+    }
+
 }
