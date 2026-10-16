@@ -32,4 +32,16 @@ public class LinkedChainTest {
         chain.add(5);
         chain.get(1); // should throw
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddNullThrows() {
+        LinkedChain<String> chain = new LinkedChain<>();
+        chain.add(null); // should throw
+    }
+
+    @Test
+    public void testSizeEmptyChain() {
+        LinkedChain<Integer> chain = new LinkedChain<>();
+        assertEquals(0, chain.size());
+    }
 }
