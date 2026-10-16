@@ -75,10 +75,10 @@ java -cp .;junit-4.13.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore \
 | InputHandler.java | Avi | Validation (refactored for DI) |
 | Main.java | Avi | Starts the prototype (`MineSweeper` launch) |
 | MineSweeper.java | Avi (GenAI‑assisted) | Game orchestration, win/loss, move‑history via `LinkedChain<Coordinate>` |
-| Board.java | Avi (GenAI‑assisted) | Board creation, tile storage, mine placement |
+| Board.java | Avi, Isabella (GenAI‑assisted) | Board creation, tile storage, mine placement, difficulty setting |
 | Tile.java | Avi (GenAI‑assisted) | Tile state logic (reveal, flag) |
 | MinePositions.java | Avi | Random mine coordinate generation |
 | Coordinate.java | Avi | Simple immutable coordinate value object |
-| All `*Test.java` files | Avi (GenAI‑assisted) | JUnit test suite covering public methods |
+| All `*Test.java` files | Avi, Isabella (GenAI‑assisted) | JUnit test suite covering public methods |
 
 **GenAI usage:** The scaffolding for new classes and most of the JUnit test‑boiler‑plate were generated with GitHub Copilot (GenAI). All generated code was reviewed, adapted, and approved by the team before being committed.
