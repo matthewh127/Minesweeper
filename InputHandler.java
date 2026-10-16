@@ -60,4 +60,17 @@ public class InputHandler {
         }
         return new int[]{rowCoord, colCoord};
     }
+    public boolean getFlagChoice() {
+        System.out.println("Do you want to flag this tile? (y/n)");
+        while (true) {
+            String input = scanner.next().trim().toLowerCase();
+            if (input.equals("y")) {
+                return true;
+            } else if (input.equals("n")) {
+                return false;
+            } else {
+                System.out.println("Invalid input. Please enter 'y' or 'n'.");
+            }
+        }
+    }
 }
