@@ -10,6 +10,18 @@ public class Board {
     private final int cols;
     private final int mines;
     private final LinkedChain<Tile> tiles = new LinkedChain<>();
+    
+    /**
+     * Creates a board based on the selected difficulty.
+     *
+     * @param difficulty the difficulty level (1-3)
+     * @throws IllegalArgumentException if difficulty is invalid
+     */
+    public Board(int difficulty) {
+        this(getRowsForDifficulty(difficulty),
+             getColsForDifficulty(difficulty),
+             getMinesForDifficulty(difficulty));
+    }
 
     /**
      * Creates a board of the given dimensions and randomly places the specified number of mines.
@@ -59,4 +71,55 @@ public class Board {
         int index = row * cols + col; // row‑major ordering
         return tiles.get(index);
     }
+    
+    /**
+     * Returns the number of rows based on difficulty.
+     *
+     * @param difficulty the selected difficulty
+     * @return the number of rows
+     */
+    private static int getRowsForDifficulty(int difficulty) {
+        switch (difficulty) {
+            case 1:
+                return 8;
+            case 2:
+                return 12;
+            case 3:
+                return 16;
+            default:
+                throw new IllegalArgumentException(
+                    "Invalid difficulty");
+        }
+    }
+
+    /**
+     * Returns the number of columns based on difficulty.
+     *
+     * @param difficulty the selected difficulty
+     * @return the number of columns
+     */
+    private static int getColsForDifficulty(int difficulty) {
+        return getRowsForDifficulty(difficulty);
+    }
+
+    /**
+     * Returns the number of mines based on difficulty.
+     *
+     * @param difficulty the selected difficulty
+     * @return the number of mines
+     */
+    private static int getMinesForDifficulty(int difficulty) {
+        switch (difficulty) {
+            case 1:
+                return 10;
+            case 2:
+                return 20;
+            case 3:
+                return 40;
+            default:
+                throw new IllegalArgumentException(
+                    "Invalid difficulty");
+        }
+    }
+
 }
