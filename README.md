@@ -66,7 +66,7 @@ java -cp .;junit-4.13.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore \
 | Tile.java | Matthew (GenAI‑assisted) | Tile state logic (reveal, flag) |
 | MinePositions.java | Matthew | Random mine coordinate generation |
 | Coordinate.java | Matthew | Simple immutable coordinate value object |
-| LinkedChain.java | Instructor (provided) | Generic singly‑linked collection implementation |
+| LinkedChain.java | Matthew (provided) | Generic singly‑linked collection implementation |
 | InputHandler.java | Matthew | User‑input validation (unchanged) |
 | All `*Test.java` files | Matthew (GenAI‑assisted) | JUnit test suite covering public methods |
 
