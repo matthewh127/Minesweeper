@@ -78,4 +78,27 @@ public class LinkedChain<T> {
         }
         return cur.element;
     }
+   public void toArray(int cols) {
+        if (cols <= 0) {
+            throw new IllegalArgumentException("cols must be greater than 0");
+        }
+
+        int rows = (size + cols - 1) / cols; // ceil(size / cols)
+        Node<T> current = head;
+
+        for (int r = 0; r < rows; r++) {
+            StringBuilder sb = new StringBuilder();
+            for (int c = 0; c < cols; c++) {
+                if (c > 0) sb.append(' ');
+                if (current != null) {
+                    sb.append(current.element == null ? '.' : current.element.toString());
+                    current = current.next;
+                } else {
+                    sb.append('.');
+                }
+            }
+            System.out.println(sb.toString());
+        }
+    }
+    
 }
