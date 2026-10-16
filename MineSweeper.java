@@ -75,7 +75,7 @@ public class MineSweeper {
                     break;
                 }
             }
-            moveHistory.toArray(cols);
+            board.printBoard();
         }
         double elapsed = timer.stopTimer();
         System.out.println("Game finished in " + elapsed + " seconds.");

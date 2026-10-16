@@ -78,27 +78,58 @@ public class LinkedChain<T> {
         }
         return cur.element;
     }
-   public void toArray(int cols) {
-        if (cols <= 0) {
-            throw new IllegalArgumentException("cols must be greater than 0");
-        }
+    /**
+ * Prints the chain interpreted as a Minesweeper board using the supplied Board
+ * to determine dimensions and to compute adjacent mine counts.
+ *
+ * For Tile elements:
+ *  - hidden & flagged => [F]
+ *  - hidden & not flagged => [ ]
+ *  - revealed mine => [*]
+ *  - revealed non-mine => [n] (blank for 0)
+ *
+ * For non-Tile elements the element's toString() is printed inside brackets.
+ *
+ * @param board the Board instance (must not be null)
+ * @throws IllegalArgumentException if board is null
+ */
+public void printBoard(Board board) {
+    if (board == null) throw new IllegalArgumentException("board cannot be null");
 
-        int rows = (size + cols - 1) / cols; // ceil(size / cols)
-        Node<T> current = head;
+    int rows = board.getRows();
+    int cols = board.getCols();
 
-        for (int r = 0; r < rows; r++) {
-            StringBuilder sb = new StringBuilder();
-            for (int c = 0; c < cols; c++) {
-                if (c > 0) sb.append(' ');
-                if (current != null) {
-                    sb.append(current.element == null ? '.' : current.element.toString());
-                    current = current.next;
-                } else {
-                    sb.append('.');
-                }
+    Node<T> cur = head;
+    for (int r = 0; r < rows; r++) {
+        StringBuilder sb = new StringBuilder();
+        for (int c = 0; c < cols; c++) {
+            if (c > 0) sb.append(' ');
+            if (cur == null) {
+                sb.append("[ ]");
+                continue;
             }
-            System.out.println(sb.toString());
+
+            if (cur.element instanceof Tile) {
+                Tile t = (Tile) cur.element;
+                if (!t.isRevealed()) {
+                    sb.append(t.isFlagged() ? "[F]" : "[ ]");
+                } else {
+                    if (t.isMine()) {
+                        sb.append("[*]");
+                    } else {
+                        int adj = t.getAdjacentMines(board, r, c);
+                        sb.append("[").append(adj == 0 ? " " : Integer.toString(adj)).append("]");
+                    }
+                }
+            } else {
+                Object el = cur.element;
+                sb.append("[").append(el == null ? " " : el.toString()).append("]");
+            }
+
+            cur = cur.next;
         }
+        System.out.println(sb.toString());
     }
+}
     
 }

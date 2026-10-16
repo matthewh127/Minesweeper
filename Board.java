@@ -121,5 +121,25 @@ public class Board {
                     "Invalid difficulty");
         }
     }
+    public void printBoard() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Tile tile = getTile(r, c);
+                if (tile.isRevealed()) {
+                    if (tile.isMine()) {
+                        System.out.print("[*]");
+                    } else {
+                        int adjacentMines = tile.getAdjacentMines(this, r, c);
+                        System.out.print("[" + (adjacentMines > 0 ? adjacentMines : " ") + "]");
+                    }
+                } else if (tile.isFlagged()) {
+                    System.out.print("[F]");
+                } else {
+                    System.out.print("[ ]");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 }
