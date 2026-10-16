@@ -15,4 +15,13 @@ public class TimerTest {
         assertTrue(time >= 1.0);
         assertTrue(time < 2.0);
     }
+
+    @Test
+    public void testImmediateStop() {
+        Timer timer = new Timer();
+        timer.startTimer();
+        // Stop immediately without sleeping
+        double time = timer.stopTimer();
+        assertTrue(time >= 0.0);
+    }
 }
