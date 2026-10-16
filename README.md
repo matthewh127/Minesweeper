@@ -12,7 +12,7 @@ java Main
 
 ## Running the JUnit test suite
 
-The tests use **JUnit 4**. Download the JARs (`junit-4.13.jar` and `hamcrest-core-1.3.jar`) and place them in the project root (or a `lib/` folder).
+The tests use **JUnit 4**. Download the JARs ([junit-4.13.jar](https://repo1.maven.org/maven2/junit/junit/4.13/junit-4.13.jar) and [hamcrest-core-1.3.jar](https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar)) and place them in the project root (or a `lib/` folder).
 
 ```powershell
 # Compile source and test classes together
