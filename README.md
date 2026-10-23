@@ -1,6 +1,6 @@
-# Minesweeper Prototype (Project 2 – Deliverable 3)
+# Minesweeper Prototype (Project 2 – Deliverable 4)
 
-## How to compile & run the prototype
+## How to compile & run the program
 
 ```powershell
 # Compile all source files
@@ -24,46 +24,6 @@ java -cp ".;junit-4.13.jar;hamcrest-core-1.3.jar" org.junit.runner.JUnitCore Lin
 
 > **Note:** On Windows the class‑path separator is `;`. Adjust for other OSes.
 
-## Reflection
-
-* **What changed from the spec?**
-  * Added a `MineSweeper` controller class that runs the game loop.
-  * Implemented `Tile`, `Board`, and `MinePositions` to provide concrete board generation and tile behavior.
-  * Used the generic `LinkedChain<T>` for two element types: `Tile` (board storage) and `Coordinate` (move history).
-  * Refactored `InputHandler` to use dependency‑injected `Scanner` (validation now lives in `InputHandler`).
-
-* **What changed in the LinkedChain?**
-  * The `LinkedChain` implementation was left unchanged; it is used unchanged as supplied.
-
-* **What happened to unknowns?**
-  * Figured out how to record move history using the generic collection.
-  * Determined a clean way to generate random mine positions without leaking logic into the board class.
-  * Remaining unknowns: full textual UI, flagging mechanics, and difficulty selection.
-
-* **What doesn’t work yet?**
-  * Minimal console UI – only prompts for coordinates and prints win/loss messages.
-  * No visual board display, flagging, or difficulty selection.
-  * `InputHandler` tests were previously missing; now added with DI.
-
-## Next Steps
-
-* **What is left to finish the MVP?**
-  1. Implement ASCII board display showing revealed tiles and flags.
-  2. Add flagging command (`f row col`) and integrate with `Tile.toggleFlag()`.
-  3. Provide difficulty selection (easy/medium/hard) via command‑line argument.
-  4. Complete UI polish and input prompts.
-* **Which stretch goals are committed vs. dropped?**
-  * Committed: move‑history tracking, timing mechanic, basic test suite.
-  * Dropped: networked multiplayer, AI opponent, persistent high‑score storage.
-* **What new tests are needed?**
-  * Additional edge‑case tests for `InputHandler` (already added).
-  * Tests for board display formatting and flag toggling.
-* **Who does what?**
-  * Avi – UI display.
-  * Isabella – Flagging feature implementation.
-  * Matthew – Final review of `LinkedChain` usage and test coverage.
-  * Larry – Write additional JUnit tests for board and tile logic.
-
 ## Attribution
 
 | File | Contributor(s) | Contribution |
@@ -80,4 +40,4 @@ java -cp ".;junit-4.13.jar;hamcrest-core-1.3.jar" org.junit.runner.JUnitCore Lin
 | Coordinate.java | Avi | Simple immutable coordinate value object |
 | All `*Test.java` files | Avi, Isabella (GenAI‑assisted) | JUnit test suite covering public methods |
 
-**GenAI usage:** The scaffolding for new classes and most of the JUnit test‑boiler‑plate were generated with GitHub Copilot (GenAI). All generated code was reviewed, adapted, and approved by the team before being committed.
+**GenAI usage:** The scaffolding for new classes and most of the JUnit test‑boiler‑plate were generated with GitHub Copilot (GenAI). GenAI also assisted with the backbone for some of the more complex stretch goals. All generated code was reviewed, adapted, and approved by the team before being committed.
